@@ -1,0 +1,147 @@
+<?php
+
+$conn = mysqli_connect('localhost','root','','easybakery');
+
+if(isset($_POST['add_product'])){
+
+   $product_name = $_POST['product_name'];
+   $product_description = $_POST['product_description'];
+   $product_price = $_POST['product_price'];
+   $product_image = $_FILES['product_image']['name'];
+   $product_image_tmp_name = $_FILES['product_image']['tmp_name'];
+   $product_image_folder = 'uploaded_img/'.$product_image;
+
+   if(empty($product_name) || empty($product_price) || empty($product_image) || empty($product_description)){
+      $message[] = 'please fill out all';
+   }else{
+      $insert = "INSERT INTO `product`( `name`, `description`, `price`, `image`) VALUES (' $product_name',' $product_description',' $product_price',' $product_image')";
+      $upload = mysqli_query($conn,$insert);
+      if($upload){
+         move_uploaded_file($product_image_tmp_name, $product_image_folder);
+         $message[] = 'new product added successfully';
+      }else{
+         $message[] = 'could not add the product';
+      }
+   }
+
+};
+
+if(isset($_GET['delete'])){
+   $id = $_GET['delete'];
+   mysqli_query($conn, "DELETE FROM product WHERE id = $id");
+   header('location:admin_page.php');
+};
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>admin page</title>
+<style>
+   .c{
+	   background: #C2BFB6;
+	   text-align: center;
+	   max-width: 800px;
+	   color: #604232;
+	   margin: auto;
+	   border-radius: 10px;
+} 
+.box {
+	width:200;
+	border-radius: 5px;
+	padding:10px 10px;
+	font-size:15px	
+}
+
+.btn{
+	
+	width:200;
+	border-radius: 5px;
+	padding:10px 10px;
+	font-size:15px	
+	background: white;
+	font-size:15px	
+}
+.btn:hover {
+	background: #ABA79B;
+}
+.product-display-table
+{
+	  background: #C2BFB6;
+	   text-align: center;
+	   max-width: 800px;
+	   color: #604232;
+	   margin: auto;
+	   border-radius: 10px;
+	
+	
+}
+</style>
+</head>
+<body>
+
+<?php
+
+if(isset($message)){
+   foreach($message as $message){
+      echo '<span class="message">'.$message.'</span>';
+   }
+}
+
+?>
+   
+<div>
+
+
+      <form action="shop.php" method="post">
+	  <div class="c">
+         <h3>add a new product</h3>
+         <p><input type="text" placeholder="enter product name" name="product_name" class="box"></p>
+		 <p><input type="text" placeholder="enter product description" name="product_description" class="box"></p>
+         <p><input type="number" placeholder="enter product price" name="product_price" class="box"></p>
+         <p><input type="file" accept="image/png, image/jpeg, image/jpg" name="product_image" class="box"></p>
+         <p><input type="submit" class="btn" name="add_product" value="add product"></p>
+      </form>
+
+   </div>
+
+   <?php
+
+   $select = mysqli_query($conn, "SELECT * FROM product");
+   
+   ?>
+   <div>
+      <table class="product-display-table">
+         <thead>
+         <tr>
+            <th>product description</th>
+            <th>product name</th>
+            <th>product price</th>
+			<th>product image </th>
+            <th>action</th>
+         </tr>
+         </thead>
+         <?php while($row = mysqli_fetch_assoc($select)){ ?>
+         <tr>
+            
+            <td><?php echo $row['name']; ?></td>
+			<td><?php echo $row['description']; ?></td>
+            <td><?php echo $row['price']; ?>/-</td>
+			<td><img src="uploaded_img/<?php echo $row['image']; ?>" height="100" alt=""></td>
+            <td>
+               <a href="admin_update.php?edit=<?php echo $row['id']; ?>" class="btn"> <i class="fas fa-edit"></i> edit </a>
+               <a href="admin_page.php?delete=<?php echo $row['id']; ?>" class="btn"> <i class="fas fa-trash"></i> delete </a>
+            </td>
+         </tr>
+      <?php } ?>
+      </table>
+   </div>
+
+</div>
+
+
+</body>
+</html>

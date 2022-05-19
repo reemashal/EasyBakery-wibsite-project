@@ -1,0 +1,269 @@
+ #footer {
+		 
+		height:auto;
+	 background-color:#EEEAEC;
+	width: 100%;
+	font-size: 17px;
+	 }
+	 
+	 
+	 #co{
+		padding-left : 10px; 
+		 
+		 
+	 }
+	 
+	 h2{ font-family: Times; 
+	 text-align:center;
+	 color:grey;
+	 font-size: 27px;}
+	 
+	 h1{text-align:center;
+		 color:gray;}
+		 
+	 
+	 p{ padding-left:20px; 
+	  font-family: Times;}
+	
+	 #header1 {
+
+	height:200px;
+	 background-color:#EEEAEC;
+	width: 103%;
+	font-size: 18px;
+ border: 2px double black;
+    
+		 font-family: Times;
+ 
+ 
+}
+#logoEB{ 
+	float: right;
+	width: 235px;
+	height: 204px;
+	margin-right:-20px;
+	
+}
+	 
+ 
+	
+ul{
+color: white;
+padding-top: 150px;
+
+
+
+
+}
+
+ul li{
+  display:inline;
+	font-style: bold;
+padding-bottom: 15px;
+padding:14;
+
+
+}
+
+li a{
+text-decoration:none;
+font-size: 16px;
+color: black;
+padding: 18px;
+
+}
+
+body {
+   background-image: url('bk.jpg') ;
+ background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+
+img {
+ max-width: 70%;
+  height: auto;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  border-radius: 8px;
+
+}
+
+/* Position left and right arrows) */
+.plate {
+ 
+max-width: 50%;
+  position: relative;
+  height: auto;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 250px;
+ 
+  
+}
+
+
+.plate2 {
+ 
+max-width: 50%;
+  position: relative;
+  height: auto;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 250px;
+ 
+  
+}
+
+
+
+/* Next - previous  */
+.befor,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 20px;
+  margin-top: 10px;
+  color: black;
+
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  
+}
+
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+#login-div{
+	
+	background-color:#EEEAEC;
+  height: 400px;
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  border-radius: 8px;
+	
+	
+	
+}
+
+#rg
+{
+	
+text-align:left;	
+	
+	
+}
+#picSh0p{
+	
+	float: right;
+	top:30px;
+	
+	width: 245px;
+	height: 204px;
+	
+	margin-right:-190px;
+	margin-top:-128px;
+	
+	
+}
+#shop{
+
+	background-color: white;
+	
+	 height: 240px;
+ 
+  margin-left: auto;
+  margin-right: auto;
+
+  border-radius: 20px;
+	padding-left:-50px;
+	
+	
+}
+
+/* columns side by side */
+.column {
+	
+  float: left;
+width: 20%;
+padding-top : 10px;
+}
+
+/* Add a fade for images */
+.demo {
+  opacity: 0.6;
+}
+
+/*when on hover on images */
+.active,
+.demo:hover {
+  opacity: 1;
+}
+#button{
+	background-color:white;
+	
+	 border: 2px double black;
+    
+		 font-family: Times;
+	
+}
+
+.befor2,
+.next2 {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 20px;
+  margin-top: 10px;
+  color: black;
+
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  
+}
+
+
+.next2 {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+
+
+/* columns side by side */
+.column2 {
+	
+  float: left;
+width: 20%;
+padding-top : 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
